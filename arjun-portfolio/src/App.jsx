@@ -177,14 +177,14 @@ function App() {
 
                 <div className="contact-social">
                   <a
-                    href="https://linkedin.com/in/arjun-rajput-863a721b7/"
+                    href="https://www.linkedin.com/in/arjun-rajput-863a721b7/"
                     target="_blank"
                     className="social-btn"
                   >
                     <i className="bi bi-linkedin"></i>
                   </a>
                   <a
-                    href="https://github.com/classarjun"
+                    href="https://github.com/classyarjun"
                     target="_blank"
                     className="social-btn"
                   >
@@ -216,11 +216,11 @@ function App() {
                 </div>
                 <div className="hero-stats">
                   <div className="stat-item">
-                    <span className="stat-number">5+</span>
+                    <span className="stat-number">2+</span>
                     <span className="stat-text">Years Experience</span>
                   </div>
                   <div className="stat-item">
-                    <span className="stat-number">50+</span>
+                    <span className="stat-number">20+</span>
                     <span className="stat-text">Projects Completed</span>
                   </div>
                   <div className="stat-item">
@@ -246,7 +246,7 @@ function App() {
                     <span>Designer</span>
                   </div>
                   <div className="experience-badge">
-                    <span>5+ Years</span>
+                    <span>2+ Years</span>
                     <span>Experience</span>
                   </div>
                 </div>
@@ -443,7 +443,7 @@ function App() {
                           </div>
                           <div className="contact-social">
                             <a
-                              href="https://https://www.linkedin.com/in/arjun-rajput-863a721b7/"
+                              href="https://www.linkedin.com/in/arjun-rajput-863a721b7/"
                               target="_blank"
                               className="social-btn"
                             >
@@ -479,7 +479,7 @@ function App() {
                         <input
                           type="hidden"
                           name="access_key"
-                          value="fe20eced-cc76-49a1-8ba8-7ff039f9f43b"
+                          value="cc40613f-a0b0-435d-a94e-bdb1543ef15f"
                         />
 
                         <div className="form-title">
@@ -577,18 +577,18 @@ function App() {
                     build something amazing together.
                   </p>
                   <div className="footer-social mt-4">
-                    <a  href="https://www.linkedin.com/in/karan-rajput21"
+                    <a  href="https://www.linkedin.com/in/arjun-rajput-863a721b7/"
                     target="_blank"className="social-circle">
                       <i className="bi bi-linkedin"></i>
                     </a>
-                    <a  href="https://github.com/ClassyKaran"
+                    <a  href="https://github.com/classyarjun"
                     target="_blank" className="social-circle">
                       <i className="bi bi-github"></i>
                     </a>
                     <a href="#" className="social-circle">
                       <i className="bi bi-twitter"></i>
                     </a>
-                    <a href="#" className="social-circle">
+                    <a href="https://instagram.com/classyarjunn" className="social-circle">
                       <i className="bi bi-instagram"></i>
                     </a>
                   </div>
