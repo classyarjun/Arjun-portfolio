@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  background: #000;
+  background: rgba(0, 0, 0, 0.24);
   overflow: hidden;
   min-height: 100vh;
   scroll-margin-top: 56px;

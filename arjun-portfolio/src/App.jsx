@@ -8,18 +8,20 @@ import ContactSection from "./components/ContactSection";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ProjectSection from "./components/ProjectSection";
-import CursorGlow from "./components/CursorGlow";
 import Preloader from "./components/Preloader";
+import FluidBackground from "./components/FluidBackground";
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   return (
     <>
+      <FluidBackground />
+
       {loading && <Preloader onComplete={() => setLoading(false)} />}
       {!loading && (
-        <>
-          <CursorGlow />
+        <main className="portfolio-content">
+      
           <Navbar />
           <HeroSection />
           <AboutSection />
@@ -28,7 +30,7 @@ function App() {
           <ProjectSection />
           <ContactSection />
           <Footer />
-        </>
+        </main>
       )}
     </>
   );

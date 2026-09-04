@@ -102,6 +102,7 @@ export default function Preloader({ onComplete }) {
     };
 
     window.addEventListener("load", onLoad);
+    if (document.readyState === "complete") onLoad();
 
     document.body.style.overflow = "hidden";
 
