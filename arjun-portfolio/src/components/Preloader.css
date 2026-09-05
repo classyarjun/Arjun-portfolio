@@ -1,201 +1,175 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap");
-
 .preloader {
   position: fixed;
   inset: 0;
-  z-index: 10000;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
   overflow: hidden;
-  color: #f5f5f5;
-  background: #000;
-  font-family: "Space Grotesk", sans-serif;
-  pointer-events: all;
+  background: #05070b;
+  color: #f4f7f8;
+  font-family: var(--font-body);
+  opacity: 1;
+  transition: opacity 850ms ease, visibility 850ms ease;
 }
 
-.preloader::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 78% 42%, rgba(219, 77, 134, 0.16), transparent 25%), linear-gradient(110deg, #000 0%, #000 54%, #100a14 100%);
+.preloader--exiting {
+  opacity: 0;
+  visibility: hidden;
 }
-
-.preloader::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 11vw;
-  width: 1px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.preloader-noise {
-  position: absolute;
-  inset: 0;
-  opacity: 0.08;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
-  pointer-events: none;
-}
-
-.preloader-grid {
-  position: absolute;
-  right: -8vw;
-  bottom: -35%;
-  width: 70vw;
-  height: 110%;
-  opacity: 0.16;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
-  background-size: 52px 52px;
-  transform: perspective(600px) rotateX(64deg) rotateZ(-8deg);
-  mask-image: linear-gradient(to bottom, transparent, black 35%, transparent);
-}
-
-.preloader-inner {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: min(1100px, 78vw);
-  min-height: 100%;
-  padding: 2.5rem 0 2.2rem;
-}
-
-.preloader-topline,
-.preloader-bottomline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  color: #85968d;
-  font: 600 0.68rem/1.2 "Space Grotesk", sans-serif;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.preloader-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  border: 1px solid #db4d86;
-  border-radius: 50%;
-  color: #db4d86;
-  font-weight: 700;
-  letter-spacing: -0.08em;
-}
-
-.preloader-topline-index { color: #db4d86; }
 
 .preloader-content {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 5rem 0 4rem;
+  align-items: center;
+  flex-direction: column;
+  width: min(100% - 2rem, 36rem);
+  text-align: center;
+  transform: translateY(0) scale(1);
+  transition: transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.preloader-heading-wrap { padding-left: 7vw; }
+.preloader--exiting .preloader-content {
+  transform: translateY(-1.5rem) scale(1.015);
+}
 
-.preloader-kicker {
-  display: block;
-  margin-bottom: 1.2rem;
-  color: #db4d86;
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+.preloader-dot {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 2rem;
+  border-radius: 50%;
+  background: #72ff9e;
+  box-shadow: 0 0 9px rgba(114, 255, 158, 0.95), 0 0 24px rgba(114, 255, 158, 0.38);
+  animation: preloader-breathe 2.4s ease-in-out infinite;
 }
 
 .preloader-title {
   margin: 0;
-  color: #f5f5f5;
-  font-size: clamp(4rem, 10vw, 9rem);
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 500;
-  letter-spacing: -0.07em;
-  line-height: 0.8;
-}
-
-.preloader-title em {
-  color: #db4d86;
-  font-family: "DM Serif Display", Georgia, serif;
-  font-weight: 400;
-  letter-spacing: -0.09em;
-}
-
-.preloader-counter {
-  display: flex;
-  align-items: baseline;
-  color: #f5f5f5;
-  font: 500 clamp(4rem, 10vw, 9rem)/0.8 "Space Grotesk", sans-serif;
-  letter-spacing: -0.14em;
-}
-
-.preloader-counter small {
-  margin-left: 0.35rem;
-  color: #db4d86;
-  font-size: 1.1rem;
-  letter-spacing: 0;
-}
-
-.preloader-bottomline {
-  align-items: flex-end;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-  padding-top: 1.1rem;
+  color: var(--text-primary);
+  font-size: clamp(0.82rem, 1.4vw, 0.94rem);
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  line-height: 1.4;
+  text-indent: 0.35em;
 }
 
 .preloader-status {
+  min-height: 1.3em;
+  margin: 0.9rem 0 2.8rem;
+  color: #71869c;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.preloader-status.is-ready {
+  opacity: 1;
+}
+
+.preloader-progress {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  min-height: 1.2em;
-  color: #999;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 0.72rem;
+  flex-direction: column;
+  width: 300px;
 }
-
-.status-pip {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #db4d86;
-  box-shadow: 0 0 10px #db4d86;
-}
-
-.preloader-progress-wrap { flex: 1; max-width: 360px; }
 
 .preloader-track {
   width: 100%;
-  height: 4px;
+  height: 2px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(113, 134, 156, 0.22);
 }
 
 .preloader-bar {
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #db4d86, #60a5fa, #a855f7);
-  box-shadow: 0 0 16px rgba(219, 77, 134, 0.75);
-  will-change: transform;
+  background: linear-gradient(90deg, #72ff9e, #44e5ff);
+  box-shadow: 0 0 10px rgba(68, 229, 255, 0.5);
+  transform: scaleX(0);
+  transform-origin: left center;
 }
 
-.preloader-caption { color: #71827a; }
+.preloader-percentage {
+  margin-top: 0.75rem;
+  color: #71869c;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+}
+
+.preloader-continue {
+  margin-top: 2.6rem;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #647282;
+  cursor: not-allowed;
+  font: 500 0.75rem/1.4 var(--font-body);
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  transition: color 300ms ease, text-shadow 300ms ease, letter-spacing 300ms ease;
+}
+
+.preloader-continue:not(:disabled) {
+  cursor: pointer;
+}
+
+.preloader-continue:not(:disabled):hover,
+.preloader-continue:not(:disabled):focus-visible {
+  color: #e9fff1;
+  letter-spacing: 0.42em;
+  text-shadow: 0 0 14px rgba(114, 255, 158, 0.45), 0 0 20px rgba(68, 229, 255, 0.28);
+}
+
+.preloader-continue:focus-visible {
+  border-radius: 2px;
+  box-shadow: 0 0 0 4px rgba(114, 255, 158, 0.14);
+}
+
+@keyframes preloader-breathe {
+  0%,
+  100% {
+    transform: scale(0.88);
+    opacity: 0.78;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
 
 @media (max-width: 700px) {
-  .preloader::after { left: 7vw; }
-  .preloader-inner { width: 86vw; padding: 1.4rem 0 1.5rem; }
-  .preloader-topline > span:nth-child(2) { display: none; }
-  .preloader-content { align-items: flex-start; flex-direction: column; gap: 3rem; padding: 3rem 0; }
-  .preloader-heading-wrap { padding-left: 9vw; }
-  .preloader-counter { align-self: flex-end; }
-  .preloader-bottomline { align-items: flex-start; flex-wrap: wrap; }
-  .preloader-progress-wrap { order: 3; flex-basis: 100%; max-width: none; }
-  .preloader-caption { display: none; }
+  .preloader-progress {
+    width: 240px;
+  }
+
+  .preloader-title {
+    max-width: 100%;
+    font-size: 0.82rem;
+    letter-spacing: 0.28em;
+    text-indent: 0.28em;
+  }
+
+  .preloader-status {
+    margin-bottom: 2.4rem;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+  .preloader-progress {
+    width: 280px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .preloader-grid { display: none; }
+  .preloader,
+  .preloader-content,
+  .preloader-status,
+  .preloader-continue,
+  .preloader-bar {
+    transition-duration: 0.01ms;
+  }
+
+  .preloader-dot {
+    animation: none;
+  }
 }

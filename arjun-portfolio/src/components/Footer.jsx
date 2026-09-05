@@ -24,7 +24,7 @@ function Footer() {
           <div className="row gy-4">
             <div className="col-lg-4">
               <div className="footer-brand">
-                <h3>KR<span className="text-gradient">.</span></h3>
+                <h3>AR<span className="text-gradient">.</span></h3>
                 <p className="mt-3">Creating digital experiences with passion and purpose. Lets build something amazing together.</p>
                 <div className="footer-social mt-4">
                   {socialLinks.map((social) => (
@@ -55,7 +55,7 @@ function Footer() {
       <div className="footer-bottom">
         <div className="container">
           <div className="d-flex flex-wrap justify-content-between align-items-center py-3">
-            <p className="mb-0">© {new Date().getFullYear()} KR. All rights reserved.</p>
+            <p className="mb-0">© {new Date().getFullYear()} AR. All rights reserved.</p>
             <div className="footer-extra"><a href="#">Privacy Policy</a><span className="mx-2">•</span><a href="#">Terms of Service</a></div>
           </div>
         </div>

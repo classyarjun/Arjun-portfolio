@@ -36,11 +36,12 @@
 .experience-heading h2 {
   margin: 0;
   display: inline-block;
-  font-size: 38px;
-  line-height: 1.1;
-  font-weight: 750;
+  font-family: var(--font-display, "Instrument Serif", serif);
+  font-size: clamp(48px, 5vw, 70px);
+  line-height: 0.95;
+  font-weight: 400;
   color: #f4f4f4;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.035em;
 }
 
 .experience-heading span {
@@ -49,8 +50,8 @@
   height: 4px;
   margin: 16px auto 0;
   border-radius: 50px;
-  background: #db4d86;
-  box-shadow: 0 0 12px rgba(219, 77, 134, 0.35);
+  background: linear-gradient(90deg, #ec4899, #a855f7);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.35);
 }
 
 .experience-timeline {
@@ -312,7 +313,7 @@
 
 @media (max-width: 767px) {
   .experience-section {
-    padding: 75px 0 90px;
+    padding: 44px 0 56px;
   }
 
   .experience-container {

@@ -2,7 +2,7 @@
   position: relative;
   background: rgba(0, 0, 0, 0.24);
   overflow: hidden;
-  min-height: 100vh;
+  min-height: auto;
   scroll-margin-top: 56px;
 }
 
@@ -93,18 +93,15 @@
 }
 
 .hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
   margin-bottom: 1.5rem;
-  line-height: 1.15;
-  letter-spacing: -1px;
 }
 
 .developer-text {
   font-size: 1.75rem;
-  color: #777;
+  color: #acabab;
   margin-top: 0.75rem;
-  font-weight: 400;
+  font-weight: 200;
+  font-size: 1.45rem;
 }
 
 .text-gradient {
@@ -307,12 +304,10 @@
 
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 2.25rem;
+    font-size: clamp(3rem, 7vw, 5rem);
   }
 
-  .developer-text {
-    font-size: 1.35rem;
-  }
+ 
 
   .hero-buttons .btn {
     max-width: none;

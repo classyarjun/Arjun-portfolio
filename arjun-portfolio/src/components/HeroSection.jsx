@@ -68,7 +68,6 @@ function HeroSection() {
           <div className="col-lg-6 hero-content">
             <motion.div className="animate-left" variants={prefersReduced ? {} : { visible: { transition: { staggerChildren: 0.1 } } }}>
               <motion.div className="hero-badge" custom={0} variants={fadeUp}>
-                <span className="badge-pill">Available for Freelance</span>
               </motion.div>
 
               <motion.h1 className="hero-title" custom={1} variants={fadeUp}>

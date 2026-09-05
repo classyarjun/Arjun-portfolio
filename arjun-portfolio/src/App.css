@@ -1,28 +1,344 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap");
+
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: #05070b;
+  
+}
+
+
+:root {
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --accent: #a78bfa;
+  --accent-green: #34d399;
+}
+
+
+
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+.portfolio-content {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 850ms ease, transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.portfolio-content--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+img,
+svg {
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+
+:root {
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --accent: #a78bfa;
+  --accent-secondary: #22d3ee;
+  --accent-green: #34d399;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
   margin: 0;
-  padding-top: 72px;
-  background: #000;
-  color: white;
+  padding: 0;
+  /* min-width: 320px; */
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
 
+  line-height: 1.7;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: #05070b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-  position: relative;
-  isolation: isolate;
+img,
+svg {
+  max-width: 100%;
 }
 
-.portfolio-content {
-  position: relative;
-  z-index: 1;
+@media (max-width: 767px) {
+  .portfolio-content {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .hero,
+  .about-section,
+  .skills-section,
+  .services,
+  .experience-section,
+  .featured-projects,
+  .achievements,
+  .certificates,
+  .contact-section {
+    scroll-margin-top: 76px;
+  }
+
+  .about-container,
+  .skills-container,
+  .experience-container,
+  .projects-container,
+  .achievements__container,
+  .services__container,
+  .certificates__container,
+  .contact-container {
+    width: min(100% - 32px, 560px);
+  }
+
+  .hero-description,
+  .about-subtitle,
+  .about-description,
+  .experience-content p,
+  
+  .achievement-card__description,
+  .certificate-card__description,
+  .service-card__description,
+  .contact-description {
+    overflow-wrap: anywhere;
+  }
+
+  .hero-buttons,
+  .about-cta {
+    width: 100%;
+  }
+
+  .hero-buttons .btn,
+  .about-cta a {
+    min-width: 0;
+    width: 100%;
+  }
 }
 
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  color: inherit;
+}
+
+.hero-title,
+.about-title,
+.skills-heading h2,
+.experience-heading h2,
+.projects-heading h2,
+.achievements__title,
+.certificates__title,
+.services__title,
+.contact-heading h2,
+
+.contact-info-panel h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.hero-title {
+  font-size: clamp(4rem, 7vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.about-title,
+.skills-heading h2,
+.experience-heading h2,
+.projects-heading h2,
+.achievements__title,
+.certificates__title,
+.services__title,
+.contact-heading h2 {
+  font-size: clamp(48px, 5vw, 70px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.hero-description,
+.about-subtitle,
+.contact-heading p,
+.contact-description,
+.experience-content p,
+
+.achievement-card__description,
+.service-card__description {
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.hero-badge,
+.about-tag,
+.contact-label,
+.form-header > span,
+.project-category,
+.experience-date,
+.skills-heading > span,
+.experience-heading > span,
+.projects-heading > span,
+.contact-heading > span {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-green);
+}
+
+.navbar,
+.navbar-brand,
+.navbar-link,
+.hero-buttons,
+.skill-card-name,
+.experience-content h3,
+.experience-content h4,
+.experience-tech,
+.project-technologies,
+.project-links,
+.contact-form-panel,
+.footer {
+  font-family: var(--font-body);
+}
+
+.navbar-brand {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.navbar-link {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+  color: var(--text-primary);
+}
+
+.developer-text {
+  font-family: var(--font-body);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: var(--text-secondary);
+}
+
+.skill-card-name {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #e4e4e7;
+}
+
+.experience-content h3 {
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.experience-content h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.experience-content p,
+
+
+
+
+.project-technologies span,
+.experience-tech {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.contact-field label,
+.contact-info-item span {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contact-field input,
+.contact-field textarea {
+  font-family: var(--font-body);
+  font-size: 16px;
+}

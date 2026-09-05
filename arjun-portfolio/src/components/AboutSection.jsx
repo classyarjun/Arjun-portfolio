@@ -225,7 +225,7 @@ function AboutSection() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              <h4 className="skills-title">Tech Stack</h4>
+              <h4 className="technicals">Technical Skills</h4>
               <div className="skills-tags">
                 {allSkills.slice(0, 12).map((skill, i) => (
                   <motion.span 

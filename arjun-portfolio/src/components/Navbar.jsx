@@ -1,58 +1,106 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { Sun } from "lucide-react";
 import "./Navbar.css";
 
 const navigationLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "HOME", href: "#home" },
+  { label: "PROJECTS", href: "#projects" },
+  { label: "SKILLS", href: "#skills" },
+  { label: "SERVICES", href: "#services" },
+  { label: "CERTIFICATES", href: "#certificates" },
+  { label: "EXPERIENCE", href: "#experience" },
+  { label: "CONTACT", href: "#contact" },
 ];
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("#home");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("theme") || "dark";
+    }
+    return "dark";
+  });
+
+  const handleNavigation = (event, href) => {
+    event.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", href);
+    }
+    setMobileOpen(false);
+  };
+
+  const toggleTheme = useCallback(() => {
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next === "light" ? "light" : "");
+      localStorage.setItem("theme", next);
+      return next;
+    });
+  }, []);
+
+  useEffect(() => {
+    if (theme === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-
-      const sections = navigationLinks.map((link) => link.href.substring(1));
-      const current = sections.find((id) => {
-        const el = document.getElementById(id);
-        if (!el) return false;
-        const rect = el.getBoundingClientRect();
-        return rect.top <= 150 && rect.bottom >= 150;
-      });
-
-      if (current) {
-        setActiveLink(`#${current}`);
-      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-      <div className="navbar-container">
-        <a className="navbar-brand" href="#home">
-          <span className="brand-dot"></span>
-          <span className="brand-text">Arjun</span>
-        </a>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting);
+        if (visible.length > 0) {
+          const topmost = visible.reduce((a, b) =>
+            a.boundingClientRect.top < b.boundingClientRect.top ? a : b
+          );
+          setActiveLink(`#${topmost.target.id}`);
+        }
+      },
+      {
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: 0,
+      }
+    );
 
-        <button
-          className={`navbar-toggle ${mobileOpen ? "active" : ""}`}
-          onClick={() => setMobileOpen((prev) => !prev)}
-          aria-label="Toggle navigation"
+    navigationLinks.forEach((link) => {
+      if (link.href !== "#" && link.href !== "#services" && link.href !== "#availability") {
+        const el = document.getElementById(link.href.substring(1));
+        if (el) observer.observe(el);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`} aria-label="Main navigation">
+      <div className="navbar-container">
+        <a
+          className="navbar-brand"
+          href="#home"
+          onClick={(event) => handleNavigation(event, "#home")}
+          aria-label="AR home"
         >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+          <span className="brand-dot"></span>
+          <span className="brand-text">AR</span>
+        </a>
 
         <ul className={`navbar-menu ${mobileOpen ? "open" : ""}`}>
           {navigationLinks.map((link) => (
@@ -60,13 +108,35 @@ function Navbar() {
               <a
                 className={`navbar-link ${activeLink === link.href ? "active" : ""}`}
                 href={link.href}
-                onClick={() => setMobileOpen(false)}
+                onClick={(event) => handleNavigation(event, link.href)}
               >
                 {link.label}
               </a>
             </li>
           ))}
         </ul>
+
+        <div className="navbar-actions">
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            <Sun size={17} strokeWidth={2} />
+          </button>
+
+          <button
+            className={`navbar-toggle ${mobileOpen ? "active" : ""}`}
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-label="Toggle navigation"
+            aria-expanded={mobileOpen}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </nav>
   );
