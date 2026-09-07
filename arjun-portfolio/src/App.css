@@ -41,6 +41,7 @@ html {
 }
 .portfolio-content {
   position: relative;
+    --accent-secondary: #22d3ee;
   z-index: 1;
   opacity: 0;
   transform: translateY(1rem);
@@ -101,7 +102,6 @@ html {
 body {
   margin: 0;
   padding: 0;
-  /* min-width: 320px; */
   overflow-x: hidden;
   scroll-behavior: smooth;
   font-family: var(--font-body);

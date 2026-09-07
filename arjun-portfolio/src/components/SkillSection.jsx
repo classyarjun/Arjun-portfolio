@@ -19,7 +19,7 @@ const SkillSection = () => {
         >
           <span className="skills-eyebrow">MY EXPERTISE</span>
 
-          <h2 className="skills-title">
+          <h2 className="technical-arsenal">
             Technical Arsenal
           </h2>
 

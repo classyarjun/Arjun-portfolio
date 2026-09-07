@@ -7,8 +7,7 @@
   width: 100%;
   min-height: auto;
   padding: 20px 0 20px;
-  
-background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
   color: #fff;
   overflow: hidden;
   border: 1px solid rgba(194, 0, 0, 0.08);
@@ -44,7 +43,11 @@ background: rgba(0, 0, 0, 0.2);
 
 }
 
-.skills-title {
+
+
+
+
+.technical-arsenal {
   margin: 0;
   font-family: var(--font-display, "Instrument Serif", serif);
   font-size: clamp(48px, 5vw, 70px);
@@ -55,16 +58,15 @@ background: rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
+
 .skills-title-line {
   width: 64px;
   height: 3px;
   margin-top: 18px;
   border-radius: 999px;
-  background: linear-gradient(
-    90deg,
-    #ec4899,
-    #a855f7
-  );
+  background: linear-gradient(90deg,
+      #ec4899,
+      #a855f7);
   margin-left: auto;
   margin-right: auto;
 }
@@ -102,11 +104,9 @@ background: rgba(0, 0, 0, 0.2);
   border-radius: 15px;
 
   background:
-    linear-gradient(
-      145deg,
+    linear-gradient(145deg,
       rgba(255, 255, 255, 0.035),
-      rgba(255, 255, 255, 0.012)
-    );
+      rgba(255, 255, 255, 0.012));
 
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -132,11 +132,9 @@ background: rgba(0, 0, 0, 0.2);
   inset: 0;
 
   background:
-    radial-gradient(
-      circle at 50% 0%,
+    radial-gradient(circle at 50% 0%,
       rgba(167, 139, 250, 0.08),
-      transparent 65%
-    );
+      transparent 65%);
 
   opacity: 0;
 
@@ -159,12 +157,10 @@ background: rgba(0, 0, 0, 0.2);
 
   height: 1px;
 
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.16),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.16),
+      transparent);
 
   opacity: 0;
 
@@ -180,11 +176,9 @@ background: rgba(0, 0, 0, 0.2);
   border-color: rgba(167, 139, 250, 0.35);
 
   background:
-    linear-gradient(
-      145deg,
+    linear-gradient(145deg,
       rgba(167, 139, 250, 0.07),
-      rgba(255, 255, 255, 0.025)
-    );
+      rgba(255, 255, 255, 0.025));
 
   box-shadow:
     0 12px 35px rgba(0, 0, 0, 0.35),
@@ -350,6 +344,7 @@ background: rgba(0, 0, 0, 0.2);
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   .skill-card,
   .skill-icon,
   .skill-name {
