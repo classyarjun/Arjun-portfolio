@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Sun } from "lucide-react";
 import "./Navbar.css";
 
@@ -16,12 +16,6 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("#home");
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "dark";
-    }
-    return "dark";
-  });
 
   const handleNavigation = (event, href) => {
     event.preventDefault();
@@ -33,23 +27,10 @@ function Navbar() {
     setMobileOpen(false);
   };
 
-  const toggleTheme = useCallback(() => {
-    setTheme((prev) => {
-      const next = prev === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next === "light" ? "light" : "");
-      localStorage.setItem("theme", next);
-      return next;
-    });
-  }, []);
-
   useEffect(() => {
-    if (theme === "light") {
-      document.documentElement.setAttribute("data-theme", "light");
-    } else {
-      document.documentElement.removeAttribute("data-theme");
-    }
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+    document.documentElement.removeAttribute("data-theme");
+    localStorage.removeItem("theme");
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -119,9 +100,9 @@ function Navbar() {
         <div className="navbar-actions">
           <button
             className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            type="button"
+            aria-label="Dark mode"
+            title="Dark mode"
           >
             <Sun size={17} strokeWidth={2} />
           </button>

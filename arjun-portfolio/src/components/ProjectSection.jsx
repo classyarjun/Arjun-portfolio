@@ -10,20 +10,32 @@ const projects = [
     category: "FULL STACK DEVELOPMENT",
     imageTitle: "RENT ON FRIEND",
     icon: "bi bi-people",
-    description: "A modern platform designed to connect people through a simple and user-friendly experience. Built with a scalable MERN stack architecture and integrated payment gateway.",
+    description:
+      "A modern platform designed to connect people through a simple and user-friendly experience. Built with a scalable MERN stack architecture and integrated payment gateway.",
     technologies: ["React", "Node.js", "Express", "MongoDB"],
     links: ["Live Demo", "GitHub"],
   },
   {
     number: "02",
-    title: "Business Management Platform",
-    category: "WEB APPLICATION",
-    imageTitle: "BUSINESS PLATFORM",
+    title: "Employee Management & Tracking System",
+    category: "WEB & DESKTOP APPLICATION",
+    imageTitle: "EMPLOYEE MANAGEMENT",
     imageClass: "project-blue",
     categoryClass: "blue",
-    icon: "bi bi-briefcase",
-    description: "A bilingual business management platform created to simplify business operations, management workflows and centralized data handling.",
-    technologies: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
+    icon: "bi bi-person-workspace",
+
+    description:
+      "A full-stack employee management and tracking system designed to manage employee records, monitor workforce activities, streamline daily operations, and centralize organizational data through web and desktop applications.",
+
+    technologies: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "Electron.js",
+      "MongoDB",
+      
+    ],
+
     links: ["Live Demo", "GitHub"],
   },
   {
@@ -34,7 +46,8 @@ const projects = [
     imageClass: "project-green",
     categoryClass: "green",
     icon: "bi bi-phone",
-    description: "A responsive ERP mobile application focused on business workflows and a clean user experience for Android and iOS devices.",
+    description:
+      "A responsive ERP mobile application focused on business workflows and a clean user experience for Android and iOS devices.",
     technologies: ["Flutter", "Dart", "Android", "iOS"],
     links: ["View Project", "GitHub"],
   },
@@ -94,20 +107,45 @@ function ProjectCard({ project, index, prefersReduced }) {
       whileHover={prefersReduced ? {} : { y: -8 }}
     >
       <div className="project-image-wrap">
-        <motion.div className={`project-image ${project.imageClass || ""}`} whileHover={prefersReduced ? {} : { scale: 1.03 }}>
+        <motion.div
+          className={`project-image ${project.imageClass || ""}`}
+          whileHover={prefersReduced ? {} : { scale: 1.03 }}
+        >
           <div className="project-image-content">
             <i className={`project-image-code ${project.icon}`}></i>
             <span className="project-image-title">{project.imageTitle}</span>
           </div>
         </motion.div>
       </div>
-      <motion.div className="project-info" style={{ transform: "translateZ(15px)" }}>
+      <motion.div
+        className="project-info"
+        style={{ transform: "translateZ(15px)" }}
+      >
         <span className="project-number">{project.number}</span>
-        <span className={`project-category ${project.categoryClass || ""}`}>{project.category}</span>
+        <span className={`project-category ${project.categoryClass || ""}`}>
+          {project.category}
+        </span>
         <h3>{project.title}</h3>
         <p>{project.description}</p>
-        <div className="project-technologies">{project.technologies.map((technology) => <span key={technology}>{technology}</span>)}</div>
-        <div className="project-links">{project.links.map((link) => <a href="#" target="_blank" rel="noreferrer" key={link}>{link}<span>↗</span></a>)}</div>
+        <div className="project-technologies">
+          {project.technologies.map((technology) => (
+            <span key={technology}>{technology}</span>
+          ))}
+        </div>
+        <div className="project-links">
+          {project.links.map((link) => (
+            <a
+              className="project-link-btn btn btn-outline-light"
+              href="#"
+              target="_blank"
+              rel="noreferrer"
+              key={link}
+            >
+              {link}
+              <span>↗</span>
+            </a>
+          ))}
+        </div>
       </motion.div>
     </motion.article>
   );
@@ -130,9 +168,20 @@ function ProjectSection() {
           <span></span>
         </motion.div>
 
-        <motion.div className="projects-list" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
+        <motion.div
+          className="projects-list"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} prefersReduced={prefersReduced} />
+            <ProjectCard
+              key={project.title}
+              project={project}
+              index={index}
+              prefersReduced={prefersReduced}
+            />
           ))}
         </motion.div>
       </div>

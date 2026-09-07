@@ -3,6 +3,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import useReducedMotion from "../hooks/useReducedMotion";
 import { skills } from "./skills";
 import "./AboutSection.css";
+import resumePdf from "../assets/usa based resume1.pdf";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -260,7 +261,8 @@ function AboutSection() {
                 <i className="bi bi-arrow-right"></i>
               </motion.a>
               <motion.a 
-                href="#" 
+                href={resumePdf}
+                download="Arjun-Rajput-Resume7666277351.pdf"
                 className="cta-secondary"
                 whileHover={prefersReduced ? {} : { scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
