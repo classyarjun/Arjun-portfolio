@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import useReducedMotion from "../hooks/useReducedMotion";
 import "./HeroSection.css";
-import arjunImage from "../assets/ArjunRajput.jpg";
+import arjunImage from "../assets/ArjunRajput.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
