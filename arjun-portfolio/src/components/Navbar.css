@@ -202,7 +202,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .navbar {
     top: 10px;
     width: min(96vw, 1050px);
