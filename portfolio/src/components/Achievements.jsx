@@ -53,40 +53,42 @@ const iconMap = {
 
 const achievements = [
   {
-    title: "1st Place — Intelligent Planet Hackathon",
-    organization: "KFUPM & Google Cloud",
-    date: "Feb 2026",
+    title: "3+ Years of MERN Stack Development",
+    organization: "Professional Experience",
+    date: "2023 – Present",
     description:
-      "Achieved 1st place among 500+ teams from 60+ countries. Built Manara — a personal guardian app with AR navigation and real-time risk alerts.",
+      "Built and maintained scalable full-stack web applications using MongoDB, Express.js, React.js, and Node.js with a focus on performance, security, and clean architecture.",
+    icon: "rocket",
+    accent: "blue",
+  },
+
+  {
+    title: "Built Full-Stack Business Management Platform",
+    organization: "MERN + Electron",
+    date: "2025",
+    description:
+      "Developed a bilingual business management and employee tracking platform with desktop application capabilities using MERN Stack and Electron.",
     icon: "trophy",
     accent: "gold",
   },
+
   {
-    title: "Best AI Solution — Innovation Hackathon",
-    organization: "Middle East College & KEF",
-    date: "Apr 2026",
+    title: "Cloud & Cybersecurity Learning",
+    organization: "AWS · Google · Microsoft",
+    date: "2025 – Present",
     description:
-      "Awarded for developing an outstanding AI-driven innovation at the KEF Innovation Hackathon 2026.",
-    icon: "lightbulb",
-    accent: "blue",
-  },
- 
-  {
-    title: "2nd Place — ICPC Oman (OCPC)",
-    organization: "ICPC",
-    date: "Apr 2026",
-    description:
-      "Secured second place in the Oman Collegiate Programming Contest 2025.",
-    icon: "medal",
-    accent: "purple",
-  },
-  {
-    title: "Vice Chancellor's Award for Outstanding Achievement",
-    organization: "Sohar University",
-    date: "2025/2026",
-    description:
-      "Recognized by Sohar University for international achievements and outstanding contributions to student activities.",
+      "Expanded technical expertise across cloud computing, cybersecurity, machine learning, and modern software engineering through industry-recognized learning programs and certifications.",
     icon: "award",
+    accent: "green",
+  },
+
+  {
+    title: "Developer Portfolio & Open-Source Projects",
+    organization: "GitHub",
+    date: "2025 – Present",
+    description:
+      "Created and maintained modern full-stack projects demonstrating expertise in MERN Stack, REST APIs, authentication, automation, responsive UI, and software architecture.",
+    icon: "lightbulb",
     accent: "pink",
   },
 ];

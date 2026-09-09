@@ -4,11 +4,13 @@ import "./Navbar.css";
 
 const navigationLinks = [
   { label: "HOME", href: "#home" },
-  { label: "PROJECTS", href: "#projects" },
+  { label: "ABOUT", href: "#about" },
   { label: "SKILLS", href: "#skills" },
   { label: "SERVICES", href: "#services" },
-  { label: "CERTIFICATES", href: "#certificates" },
   { label: "EXPERIENCE", href: "#experience" },
+  { label: "PROJECTS", href: "#projects" },
+  { label: "ACHIEVEMENTS", href: "#achievements" },
+  { label: "CERTIFICATES", href: "#certificates" },
   { label: "CONTACT", href: "#contact" },
 ];
 

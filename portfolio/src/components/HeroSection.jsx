@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import useReducedMotion from "../hooks/useReducedMotion";
 import "./HeroSection.css";
-import arjunImage from "../assets/ArjunRajput.png";
+import arjunImage from "../assets/ArjunRajput.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -109,7 +109,7 @@ function HeroSection() {
 
               <motion.div className="hero-stats" custom={6} variants={fadeUp}>
                 <motion.div className="stat-item" custom={0} variants={scaleIn}>
-                  <span className="stat-number">2+</span>
+                  <span className="stat-number">3+</span>
                   <span className="stat-text">Years Experience</span>
                 </motion.div>
                 <motion.div className="stat-item" custom={1} variants={scaleIn}>
@@ -137,16 +137,13 @@ function HeroSection() {
                 <img src={arjunImage} alt="Arjun Rajput" />
                 <div className="floating-card card1">
                   <i className="bi bi-code-slash"></i>
-                  <span>Developer</span>
+                  <span>DEVELOPER</span>
                 </div>
                 <div className="floating-card card2">
                   <i className="bi bi-palette"></i>
-                  <span>Designer</span>
+                  <span>DESIGNER</span>
                 </div>
-                <div className="experience-badge">
-                  <span>2+ Years</span>
-                  <span>Experience</span>
-                </div>
+                
               </div>
             </motion.div>
           </div>
